@@ -1,0 +1,10 @@
+#form-login{
+    width: 100%;
+}
+
+#login-new-account-switch{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 20px;
+    width: 50px;
+}
