@@ -8,3 +8,8 @@
     height: 20px;
     width: 50px;
 }
+
+#login-new-account-switch:checked{
+    background-color: limegreen;
+    border-color: limegreen;
+}
