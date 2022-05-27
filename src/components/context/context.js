@@ -4,8 +4,6 @@ import { config } from "../../config"
 export const context = createContext()
 const { Provider } = context
 
-console.log("1")
-
 export const ProviderContext = ({children}) => {
     const [user, setUser] = useState()
     const [operations, setOperations] = useState([])
@@ -30,7 +28,12 @@ export const ProviderContext = ({children}) => {
                     if (entry.type == "output") aux -= entry.amount
                 }
                 setBalance(aux)
-                setOperations(json)
+                let operationsShown = []
+                for (let i = 0; i < 10; i++) {
+                    operationsShown.push(json[i])
+                    
+                }
+                setOperations(operationsShown)
             })
             .catch(err => console.log(err))
     })

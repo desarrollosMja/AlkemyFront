@@ -4,10 +4,11 @@ import Alert from "react-bootstrap/Alert"
 import Table from "react-bootstrap/Table"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import Nav from "react-bootstrap/Nav"
 import { useContext, useEffect, useRef, useState } from "react"
 import { context } from "../context/context.js"
 import { config } from "../../config"
-import { useParams, useNavigate, Link } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 export default function Session(){
     const [validated, setValidated] = useState(false);
@@ -88,7 +89,8 @@ export default function Session(){
     return(
         <>  
             <nav>
-                <h6>Bienvenido {userEmail}</h6>
+                <Nav.Link href="/">Close session</Nav.Link>
+                <h6>Bienvenido/a {userEmail}</h6>
             </nav>
 
             <section id="dataInput">
@@ -145,7 +147,7 @@ export default function Session(){
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th>Operation ID</th>
+                            <th>#</th>
                             <th>Date</th>
                             <th>Concept</th>
                             <th>Amount</th>

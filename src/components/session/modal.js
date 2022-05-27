@@ -41,6 +41,21 @@ export default function ModalEditEntries(props){
             .catch(err => console.log(err))
     }
 
+    function deleteEntry(){
+        fetch(`http://localhost:${config.BACK_PORT}/api/inputs/delete/${operationObj.operationId}`, {
+            method: "DELETE",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            mode: "cors"
+        })
+            .then(res => res.json())
+            .then(json => {
+                if (json.delete == "ok") props.onHide()
+            })
+            .catch(err => console.log(err))
+    }
+
     return(
         <Modal
             {...props}
@@ -77,7 +92,9 @@ export default function ModalEditEntries(props){
                 </Form.Group>
             </Modal.Body>
             <Modal.Footer id="modal-footer">
-                <Button variant="success" onClick={saveEdit}>Save</Button>
+                <Button variant="success" onClick={saveEdit}>Save changes</Button>
+                <Button variant="danger" onClick={deleteEntry}>Delete entry</Button>
+                <Button variant="light" onClick={props.onHide}>Cancel</Button>
             </Modal.Footer>
         </Modal>
     )
