@@ -30,8 +30,7 @@ export const ProviderContext = ({children}) => {
                 setBalance(aux)
                 let operationsShown = []
                 for (let i = 0; i < 10; i++) {
-                    operationsShown.push(json[i])
-                    
+                    if (json[i] != undefined) operationsShown.push(json[i])
                 }
                 setOperations(operationsShown)
             })

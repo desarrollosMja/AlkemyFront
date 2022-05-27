@@ -51,9 +51,16 @@ export default function ModalEditEntries(props){
         })
             .then(res => res.json())
             .then(json => {
-                if (json.delete == "ok") props.onHide()
+                if (json.delete == "ok") {
+                    let operationsShown = []
+                    for (let i = 0; i < 10; i++) {
+                        if (json.operations[i] != undefined) operationsShown.push(json.operations[i])
+                    }
+                    setOperations(operationsShown)
+                }
             })
             .catch(err => console.log(err))
+            props.onHide()
     }
 
     return(

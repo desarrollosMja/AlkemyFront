@@ -5,7 +5,7 @@ import Table from "react-bootstrap/Table"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Nav from "react-bootstrap/Nav"
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { context } from "../context/context.js"
 import { config } from "../../config"
 import { useParams, useNavigate } from "react-router-dom"
@@ -18,7 +18,6 @@ export default function Session(){
     const navigate = useNavigate()
     const radioInput = useRef()
     const radioOutput = useRef()
-    const userSession = sessionStorage.getItem("user")
     const [operationId, setOperationId] = useState()
 
     function handleInputRadioClick(e){
@@ -82,14 +81,19 @@ export default function Session(){
         }
     }
 
-    useEffect(() => {
-        if (userSession != userEmail) navigate("/")
-   },[])
+    function closeSession(){
+        fetch(`http://localhost:${config.BACK_PORT}/api/users/close-session`)
+            .then(res => res.json())
+            .then(json => {
+                if (json.session == "closed") navigate("/")
+            })
+            .catch(err => console.log(err))
+    }
 
     return(
         <>  
             <nav>
-                <Nav.Link href="/">Close session</Nav.Link>
+                <Nav.Link onClick={closeSession}>Close session</Nav.Link>
                 <h6>Bienvenido/a {userEmail}</h6>
             </nav>
 

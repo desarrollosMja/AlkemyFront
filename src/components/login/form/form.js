@@ -48,7 +48,6 @@ export default function LoginForm(){
                 if (json.operation == "Failed"){
                     setShowAlertUserExists(true)
                 } else{
-                    sessionStorage.setItem("user",obj.email)
                     contexto.setUser(obj)
                     navigate(`/session/${obj.email}`)
                 }
@@ -77,7 +76,6 @@ export default function LoginForm(){
             .then(res => res.json())
             .then(json => {
                 if (json.access == "Granted"){
-                    sessionStorage.setItem("user",obj.email)
                     contexto.setUser(obj)
                     navigate(`/session/${obj.email}`)
                 }

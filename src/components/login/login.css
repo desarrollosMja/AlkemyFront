@@ -17,3 +17,15 @@
     align-items: center;
 }
 
+@media (min-width: 511px) and (max-width: 960px) {
+    #login{
+        width: 70%;
+    }
+}
+
+@media (max-width: 510px) {
+    #login{
+        width: 90%;
+    }
+}
+
