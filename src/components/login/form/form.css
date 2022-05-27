@@ -13,3 +13,9 @@
     background-color: limegreen;
     border-color: limegreen;
 }
+
+#alert-user-exists{
+    margin: 20px 0px 5px 0px;
+    height: 50px;
+    padding: 10px;
+}

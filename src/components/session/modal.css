@@ -1,0 +1,20 @@
+#modal{
+    width: 400px;
+}
+
+#modal-body{
+    background-color: rgb(77, 184, 77);
+    border: none;
+    box-shadow: 0px 0px 5px 2px rgb(77, 184, 77);
+}
+
+#modal-footer{
+    background-color: rgb(77, 184, 77);
+    border: none;
+    box-shadow: 0px 0px 5px 2px rgb(77, 184, 77);
+    justify-content: flex-start;
+}
+
+.modal-content{
+    border: none;
+}

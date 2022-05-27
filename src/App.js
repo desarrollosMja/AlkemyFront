@@ -9,7 +9,7 @@ function App() {
     <ProviderContext>
       <Routes>
         <Route path='/' element={<Login/>}/>
-        <Route path='/session' element={<Session/>}/>
+        <Route path='/session/:userEmail' element={<Session/>}/>
       </Routes>
     </ProviderContext>
   );
